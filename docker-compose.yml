@@ -16,7 +16,16 @@ services:
     volumes:
     - account-service-data:/tmp
     restart: always
+  mongo:
+    image: mongo:3.7
+    container_name: mongodb-container
+    ports:
+    - 27017:27017
+    volumes:
+    - mongo-data:/data/db
+
 
 volumes:
   discovery-data:
   account-service-data:
+  mongo-data:
