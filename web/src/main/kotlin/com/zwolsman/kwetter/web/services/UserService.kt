@@ -9,7 +9,7 @@ import org.springframework.web.util.DefaultUriBuilderFactory
 class UserService(private val restTemplate: RestTemplate) {
 
     init {
-        restTemplate.uriTemplateHandler = DefaultUriBuilderFactory("http://user-service/");
+        restTemplate.uriTemplateHandler = DefaultUriBuilderFactory("http://us.majo-vps.nl:8081/")
     }
 
     fun findByUsername(name: String) = restTemplate.getForObject("{name}", KwetterUser::class.java, name)!!
