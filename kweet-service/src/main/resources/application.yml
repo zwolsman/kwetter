@@ -7,7 +7,7 @@ spring:
       host: mongo
 
 server:
-  port: 8080
+  port: 80
 
 eureka:
   client:
