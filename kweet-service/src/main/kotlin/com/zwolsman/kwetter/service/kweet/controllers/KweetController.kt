@@ -13,7 +13,7 @@ class KweetController(private val kweetService: KweetService) {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestParam text: String, @RequestParam userId: Int) : Kweet {
-        return kweetService.createKweet(text)
+    fun create(@RequestParam text: String, @RequestParam userId: String) : Kweet {
+        return kweetService.createKweet(text, userId)
     }
 }

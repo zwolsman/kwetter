@@ -3,6 +3,7 @@ package com.zwolsman.kwetter.service.kweet.models
 import com.zwolsman.kwetter.service.kweet.services.UrlShortenerService
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.DBRef
 import java.util.*
 
 data class Kweet(val text: String, val createdAt: Date = Date(), val entities: Map<String, List<KweetEntity>> = mapEntities(text)) {
@@ -10,6 +11,9 @@ data class Kweet(val text: String, val createdAt: Date = Date(), val entities: M
     @Id
     lateinit var id: ObjectId
 
+    @DBRef
+    lateinit var user: KweetUser
+    
     companion object {
         private val hashtagRegex = Regex("(?:\\s|\\A|^)[##]+([A-Za-z0-9-_]+)")
         private val userMentionRegex = Regex("(?<=^|(?<=[^a-zA-Z0-9-.]))@[A-Za-z0-9-]+(?=[^a-zA-Z0-9-_.])")
