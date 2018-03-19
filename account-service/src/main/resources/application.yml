@@ -1,0 +1,14 @@
+spring:
+  application:
+     name: account-service
+  data:
+    mongodb:
+      database: kwetter
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/

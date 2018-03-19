@@ -1,0 +1,9 @@
+package com.zwolsman.kwetter.service.account.repositories
+
+import com.zwolsman.kwetter.service.account.models.KwetterUser
+import org.bson.types.ObjectId
+import org.springframework.data.mongodb.repository.MongoRepository
+
+interface UserRepository : MongoRepository<KwetterUser, ObjectId> {
+    fun findByUsername(username: String) : KwetterUser?
+}
