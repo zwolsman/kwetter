@@ -1,0 +1,15 @@
+spring:
+  application:
+     name: kweet-service
+  data:
+    mongodb:
+      database: kwetter
+      host: mongo
+
+server:
+  port: 80
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery/eureka/
