@@ -4,7 +4,7 @@ services:
     image: com.zwolsman.kwetter/discovery-server
     container_name: discovery-server
     ports:
-    - 1111:1111
+    - 1111:80
     volumes:
     - discovery-data:/tmp
     restart: always
