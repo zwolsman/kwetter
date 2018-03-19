@@ -1,15 +1,8 @@
 package com.zwolsman.kwetter.web.resources
 
 import org.springframework.hateoas.ResourceSupport
+import java.util.*
 
-open class Kweet(val content: String) : ResourceSupport() {
-    companion object {
-        var counter: Long = 0
-    }
+open class Kweet(val text: String, val createdAt: Date = Date(), val entities: Map<String, List<KweetEntity>>, val user: KwetterUser) : ResourceSupport() {
 
-    val id: Long
-
-    init {
-        id = counter++
-    }
 }
