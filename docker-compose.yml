@@ -26,7 +26,15 @@ services:
     volumes:
       - kweet-service-data:/tmp
     restart: always
-
+  web:
+    image: com.zwolsman.kwetter/web
+    container_name: kwetter-web
+    ports:
+      - 8080:80
+    volumes:
+      - web-data:/tmp
+    restart: always
+  
   mongo:
     image: mongo:3.7
     container_name: mongodb-container
@@ -40,4 +48,5 @@ volumes:
   discovery-data:
   account-service-data:
   kweet-service-data:
+  web-data:
   mongo-data:
