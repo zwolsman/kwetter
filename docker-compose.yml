@@ -3,11 +3,11 @@ services:
   discovery:
     image: com.zwolsman.kwetter/discovery-server
     container_name: discovery-server
-    port:
+    ports:
     - 1111:1111
     volumes:
     - discovery-data:/tmp
     restart: always
-    
+
 volumes:
   discovery-data:
