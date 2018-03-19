@@ -4,7 +4,7 @@ spring:
   data:
     mongodb:
       database: kwetter
-      #host: mongo
+      host: mongo
 
 server:
   port: 8080
