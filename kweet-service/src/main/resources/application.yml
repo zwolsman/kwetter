@@ -13,4 +13,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://discovery/eureka/
-    enabled: false
