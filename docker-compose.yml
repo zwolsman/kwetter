@@ -8,6 +8,15 @@ services:
     volumes:
     - discovery-data:/tmp
     restart: always
+  account-service:
+    image: com.zwolsman.kwetter/account-service
+    container_name: account-service
+    ports:
+      - 8081:80
+    volumes:
+    - account-service-data:/tmp
+    restart: always
 
 volumes:
   discovery-data:
+  account-service-data:
