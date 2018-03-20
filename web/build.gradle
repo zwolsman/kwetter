@@ -68,7 +68,7 @@ dependencyManagement {
 }
 
 docker {
-	name "${project.group}/${jar.baseName}"
+	name "murfzw/kwetter-web"
 	files jar.archivePath
 	buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }

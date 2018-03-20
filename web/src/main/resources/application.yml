@@ -3,9 +3,9 @@ spring:
      name: web
 
 server:
-  port: 1777
+  port: 80
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://us.majo-vps.nl:1111/eureka/
+      defaultZone: http://discovery/eureka/

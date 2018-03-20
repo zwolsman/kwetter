@@ -16,6 +16,6 @@ class WebApplication {
     }
 
     @Bean
-    //@LoadBalanced
+    @LoadBalanced
     fun restTemplate() = RestTemplate()
 }

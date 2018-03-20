@@ -1,23 +1,20 @@
 package com.zwolsman.kwetter.web.controllers
 
-import com.zwolsman.kwetter.web.resources.Kweet
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import com.zwolsman.kwetter.web.services.KweetService
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/")
-class KweetController {
+class KweetController(private val kweetService: KweetService) {
 
     @GetMapping("/kweet/{id}")
-    fun byId(@PathVariable id: Long) : Kweet {
-        TODO("busy boy")
-    }
+    fun byId(@PathVariable id: String) = kweetService.byId(id)
 
     @GetMapping("/{name}/kweets")
-    fun byUsername(@PathVariable userName: String) : List<Kweet> {
-        return emptyList()
-    }
+    fun byUsername(@PathVariable name: String) = kweetService.byUser(name)
 
+    @PostMapping("kweet")
+    @ResponseStatus(HttpStatus.CREATED)
+    fun createKweet(@RequestParam text: String, @RequestParam userId: String) = kweetService.createKweet(text, userId)
 }

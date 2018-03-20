@@ -1,7 +1,7 @@
 version: '3'
 services:
   discovery:
-    image: com.zwolsman.kwetter/discovery-server
+    image: murfzw/kwetter-discovery-service
     container_name: discovery-server
     ports:
       - 1111:80
@@ -10,29 +10,38 @@ services:
     restart: always
 
   account-service:
-    image: com.zwolsman.kwetter/account-service
+    image: murfzw/kwetter-account-service
     container_name: account-service
     ports:
       - 8081:80
     volumes:
       - account-service-data:/tmp
+    depends_on:
+      - mongo
+      - discovery
     restart: always
 
   kweet-service:
-    image: com.zwolsman.kwetter/kweet-service
+    image: murfzw/kwetter-kweet-service
     container_name: kweet-service
     ports:
       - 8082:80
     volumes:
       - kweet-service-data:/tmp
+    depends_on:
+      - mongo
+      - discovery
     restart: always
   web:
-    image: com.zwolsman.kwetter/web
+    image: murfzw/kwetter-web
     container_name: kwetter-web
     ports:
       - 8080:80
     volumes:
       - web-data:/tmp
+    depends_on:
+      - account-service
+      - kweet-service
     restart: always
   
   mongo:
