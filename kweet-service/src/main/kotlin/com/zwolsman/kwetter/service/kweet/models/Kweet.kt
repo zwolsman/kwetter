@@ -22,11 +22,11 @@ data class Kweet(val text: String, val createdAt: Date = Date(), val entities: M
         fun mapEntities(text: String): Map<String, List<KweetEntity>> {
             println("Matching entities..")
             val map = mutableMapOf<String, List<KweetEntity>>()
-            map["hashtags"] = hashtagRegex.findAll(text).map { it.groups[0]!! }.map { Hashtag(it.range, it.value) }.toList()
-            map["userMentions"] = userMentionRegex.findAll(text).map { it.groups[0]!! }.map { UserMention(it.range, it.value) }.toList()
+            map["hashtags"] = hashtagRegex.findAll(text).map { it.groups[0]!! }.map { Hashtag(arrayOf(it.range.first, it.range.last), it.value) }.toList()
+            map["userMentions"] = userMentionRegex.findAll(text).map { it.groups[0]!! }.map { UserMention(arrayOf(it.range.first, it.range.last), it.value) }.toList()
             map["urls"] = urlRegex.findAll(text).map { it.groups[0]!! }.map {
                 val shortUrl = UrlShortenerService().getShortUrl(it.value)
-                Url(it.range, shortUrl, it.value)
+                Url(arrayOf(it.range.first, it.range.last), shortUrl, it.value)
             }.toList()
             return map
         }

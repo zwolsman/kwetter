@@ -15,8 +15,8 @@ class KweetController(private val kweetService: KweetService) {
     }
 
     @GetMapping("{name}/kweets")
-    fun byUsername(@RequestParam name: String) = kweetService.findByUsername(name)
+    fun byUsername(@PathVariable name: String) = kweetService.findByUsername(name)
 
     @GetMapping("{kweetId}")
-    fun byId(@RequestParam kweetId: String) = kweetService.findById(kweetId)
+    fun byId(@PathVariable kweetId: String) = kweetService.findById(kweetId)
 }
