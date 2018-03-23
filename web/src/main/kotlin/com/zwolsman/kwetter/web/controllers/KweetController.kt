@@ -11,7 +11,7 @@ class KweetController(private val kweetClient: KweetClient) {
 
     @GetMapping("/kweet/{id}")
     fun byId(@PathVariable id: String) = kweetClient.findById(id)
-    @GetMapping("/{name}/kweets")
+    @GetMapping("/user/{name}/kweets")
     fun byUsername(@PathVariable name: String) = kweetClient.findByUsername(name)
 
     @PostMapping("kweet")
