@@ -16,6 +16,9 @@ interface KweetClient {
     @RequestMapping("{id}", method = [RequestMethod.GET])
     fun findById(@PathVariable id: String) : Kweet
 
+    @RequestMapping("{name}/timeline", method = [RequestMethod.GET])
+    fun getTimeline(@PathVariable name: String) : List<Kweet>
+
     @RequestMapping(method = [RequestMethod.POST])
     fun createKweet(@RequestParam text: String, @RequestParam userId: String): Kweet
 }

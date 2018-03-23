@@ -17,6 +17,9 @@ class KweetController(private val kweetService: KweetService) {
     @GetMapping("{name}/kweets")
     fun byUsername(@PathVariable name: String) = kweetService.findByUsername(name)
 
+    @GetMapping("{name}/timeline")
+    fun getTimeline(@PathVariable name: String) = kweetService.loadTimeline(name)
+
     @GetMapping("{kweetId}")
     fun byId(@PathVariable kweetId: String) = kweetService.findById(kweetId)
 }
