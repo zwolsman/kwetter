@@ -1,7 +1,7 @@
 package com.zwolsman.kwetter.service.account.services
 
+import com.zwolsman.kwetter.dao.models.KwetterUser
 import com.zwolsman.kwetter.service.account.exceptions.UserNotFoundException
-import com.zwolsman.kwetter.service.account.models.KwetterUser
 import com.zwolsman.kwetter.service.account.repositories.UserRepository
 import org.slf4j.LoggerFactory
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder

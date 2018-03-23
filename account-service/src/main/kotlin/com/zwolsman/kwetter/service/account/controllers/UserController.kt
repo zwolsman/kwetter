@@ -1,6 +1,6 @@
 package com.zwolsman.kwetter.service.account.controllers
 
-import com.zwolsman.kwetter.service.account.models.KwetterUser
+import com.zwolsman.kwetter.dao.models.KwetterUser
 import com.zwolsman.kwetter.service.account.services.UserService
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
