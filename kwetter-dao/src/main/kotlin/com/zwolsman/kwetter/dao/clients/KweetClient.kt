@@ -1,4 +1,4 @@
-package com.zwolsman.kwetter.dao.services
+package com.zwolsman.kwetter.dao.clients
 
 import com.zwolsman.kwetter.dao.models.Kweet
 import org.springframework.cloud.openfeign.FeignClient
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 
 @FeignClient("kweet-service", url = "http://kweet-service")
-interface KweetService {
+interface KweetClient {
 
     @RequestMapping("{name}/kweets", method= [RequestMethod.GET])
     fun findByUsername(@PathVariable name: String) : List<Kweet>

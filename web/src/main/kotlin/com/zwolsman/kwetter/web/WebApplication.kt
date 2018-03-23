@@ -1,12 +1,14 @@
 package com.zwolsman.kwetter.web
 
+import com.zwolsman.kwetter.dao.clients.KweetClient
+import com.zwolsman.kwetter.dao.clients.UserClient
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.cloud.client.loadbalancer.LoadBalanced
-import org.springframework.context.annotation.Bean
-import org.springframework.web.client.RestTemplate
+import org.springframework.cloud.openfeign.EnableFeignClients
 
-@SpringBootApplication
+
+@SpringBootApplication()
+@EnableFeignClients(basePackageClasses = [UserClient::class, KweetClient::class])
 class WebApplication {
     companion object {
         @JvmStatic
@@ -14,8 +16,4 @@ class WebApplication {
             runApplication<WebApplication>(*args)
         }
     }
-
-    @Bean
-    @LoadBalanced
-    fun restTemplate() = RestTemplate()
 }

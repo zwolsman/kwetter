@@ -1,4 +1,4 @@
-package com.zwolsman.kwetter.dao.services
+package com.zwolsman.kwetter.dao.clients
 
 import com.zwolsman.kwetter.dao.models.KwetterUser
 import org.springframework.cloud.openfeign.FeignClient

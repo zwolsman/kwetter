@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.2.20'
+		kotlinVersion = '1.2.30'
 		springBootVersion = '2.0.0.RELEASE'
 	}
 	repositories {
@@ -53,10 +53,12 @@ ext {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-hateoas')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.cloud:spring-cloud-starter-openfeign')
 	compile('com.fasterxml.jackson.module:jackson-module-kotlin')
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
+	compile project(":kwetter-dao")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 }
@@ -68,7 +70,7 @@ dependencyManagement {
 }
 
 docker {
-	name "murfzw/kwetter-web"
+	name "murfzw/kwetter-web:latest"
 	files jar.archivePath
 	buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }

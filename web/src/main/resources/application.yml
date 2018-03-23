@@ -1,6 +1,9 @@
 spring:
   application:
      name: web
+  data:
+    rest:
+      default-media-type: application/json
 
 server:
   port: 80

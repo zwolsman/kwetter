@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 data class KwetterUser(@Id
                        val username: String,
                        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-                       val password: String,
+                       val password: String = "",
                        val profileImageUrl: String = "http://via.placeholder.com/200x200",
                        var followersCount:Int = 0,
                        var friendsCount: Int = 0,

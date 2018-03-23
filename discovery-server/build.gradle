@@ -65,7 +65,7 @@ dependencyManagement {
 }
 
 docker {
-	name "murfzw/kwetter-discovery-service"
+	name "murfzw/kwetter-discovery-service:latest"
 	files jar.archivePath
 	buildArgs(['JAR_FILE': "${jar.archiveName}"])
 }

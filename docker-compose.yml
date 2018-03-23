@@ -1,7 +1,7 @@
 version: '3'
 services:
   discovery:
-    image: murfzw/kwetter-discovery-service
+    image: murfzw/kwetter-discovery-service:latest
     container_name: discovery-server
     ports:
       - 1111:80
@@ -10,7 +10,7 @@ services:
     restart: always
 
   account-service:
-    image: murfzw/kwetter-account-service
+    image: murfzw/kwetter-account-service:latest
     container_name: account-service
     ports:
       - 8081:80
@@ -22,7 +22,7 @@ services:
     restart: always
 
   kweet-service:
-    image: murfzw/kwetter-kweet-service
+    image: murfzw/kwetter-kweet-service:latest
     container_name: kweet-service
     ports:
       - 8082:80
@@ -33,7 +33,7 @@ services:
       - discovery
     restart: always
   web:
-    image: murfzw/kwetter-web
+    image: murfzw/kwetter-web:latest
     container_name: kwetter-web
     ports:
       - 8080:80
