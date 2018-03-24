@@ -16,8 +16,8 @@
 		4863CEF22066883E00B863BF /* KweetEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEEF2066883E00B863BF /* KweetEntities.swift */; };
 		4863CEF32066883E00B863BF /* KweetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEF02066883E00B863BF /* KweetUser.swift */; };
 		4863CEF52066898200B863BF /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEF42066898200B863BF /* TimelineViewController.swift */; };
-		4863CEF820668A5700B863BF /* mockup.json in Resources */ = {isa = PBXBuildFile; fileRef = 4863CEF720668A5700B863BF /* mockup.json */; };
 		4863CEFA20668DF000B863BF /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEF920668DF000B863BF /* TimelineTableViewCell.swift */; };
+		4863CEFC2066BBA900B863BF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEFB2066BBA900B863BF /* Api.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +33,8 @@
 		4863CEEF2066883E00B863BF /* KweetEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KweetEntities.swift; sourceTree = "<group>"; };
 		4863CEF02066883E00B863BF /* KweetUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KweetUser.swift; sourceTree = "<group>"; };
 		4863CEF42066898200B863BF /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
-		4863CEF720668A5700B863BF /* mockup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockup.json; sourceTree = "<group>"; };
 		4863CEF920668DF000B863BF /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		4863CEFB2066BBA900B863BF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F92F7AFDBA3F4831F1619280 /* Pods-kwetter-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kwetter-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kwetter-ios/Pods-kwetter-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,15 +79,15 @@
 		4863CED8206579E000B863BF /* kwetter-ios */ = {
 			isa = PBXGroup;
 			children = (
+				4863CEFE2066C12600B863BF /* services */,
+				4863CEFD2066C11C00B863BF /* cells */,
 				4863CEF62066898800B863BF /* controllers */,
 				4863CEED2066882B00B863BF /* models */,
 				4863CED9206579E000B863BF /* AppDelegate.swift */,
 				4863CEDF206579E000B863BF /* Main.storyboard */,
 				4863CEE2206579E000B863BF /* Assets.xcassets */,
-				4863CEF720668A5700B863BF /* mockup.json */,
 				4863CEE4206579E000B863BF /* LaunchScreen.storyboard */,
 				4863CEE7206579E000B863BF /* Info.plist */,
-				4863CEF920668DF000B863BF /* TimelineTableViewCell.swift */,
 			);
 			path = "kwetter-ios";
 			sourceTree = "<group>";
@@ -108,6 +108,22 @@
 				4863CEF42066898200B863BF /* TimelineViewController.swift */,
 			);
 			path = controllers;
+			sourceTree = "<group>";
+		};
+		4863CEFD2066C11C00B863BF /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				4863CEF920668DF000B863BF /* TimelineTableViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		4863CEFE2066C12600B863BF /* services */ = {
+			isa = PBXGroup;
+			children = (
+				4863CEFB2066BBA900B863BF /* Api.swift */,
+			);
+			path = services;
 			sourceTree = "<group>";
 		};
 		EFF2ED01D367EDDA31F604B3 /* Pods */ = {
@@ -183,7 +199,6 @@
 			files = (
 				4863CEE6206579E000B863BF /* LaunchScreen.storyboard in Resources */,
 				4863CEE3206579E000B863BF /* Assets.xcassets in Resources */,
-				4863CEF820668A5700B863BF /* mockup.json in Resources */,
 				4863CEE1206579E000B863BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +277,7 @@
 				4863CEF12066883E00B863BF /* Kweet.swift in Sources */,
 				4863CEDA206579E000B863BF /* AppDelegate.swift in Sources */,
 				4863CEFA20668DF000B863BF /* TimelineTableViewCell.swift in Sources */,
+				4863CEFC2066BBA900B863BF /* Api.swift in Sources */,
 				4863CEF52066898200B863BF /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,44 +7,25 @@
 //
 
 import UIKit
+import RxSwift
 
 let cellIdentifier = "kweetCell"
 class TimelineController : UITableViewController, UITextViewDelegate {
     
-    let filename = "mockup"
-    var kweets = [Kweet]()
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         tableView.tableFooterView = UIView()
-        if let path = Bundle.main.path(forResource: filename, ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = try JSONDecoder().decode([Kweet].self, from: data)
-                kweets += jsonResult
-                tableView.reloadData()
-                print("Loaded kweets")
-            } catch {
-                // handle error
-                print("OH GOD")
+        tableView.dataSource = nil
+        tableView.delegate = nil
+        ApiService.timeline.bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: TimelineTableViewCell.self)) {  _, element, cell in
+                cell.setup(kweet: element)
             }
-        }
+            .disposed(by: disposeBag)
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         print(URL)
         return true
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return kweets.count
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! TimelineTableViewCell
-        cell.setup(kweet: kweets[indexPath.row])
-        return cell
     }
 }
