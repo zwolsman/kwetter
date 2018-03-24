@@ -1,15 +1,18 @@
 PODS:
   - Kingfisher (4.6.4)
+  - RelativeFormatter (0.8.3)
   - SwiftyAttributes (4.1.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 4.0)
+  - RelativeFormatter (~> 0.8)
   - SwiftyAttributes
 
 SPEC CHECKSUMS:
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
+  RelativeFormatter: 13508ccd19bbab46ca95cf847a0db6e80601c9a4
   SwiftyAttributes: cef9463f6e7da1ab393896ca036c9ac37d8a406b
 
-PODFILE CHECKSUM: 25ec8c2222544cbf8ce50127fd33dd98c01578d4
+PODFILE CHECKSUM: d4661179c4a551046814af7672079c43ac632d1a
 
 COCOAPODS: 1.4.0

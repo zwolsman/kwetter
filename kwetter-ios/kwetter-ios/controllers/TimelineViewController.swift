@@ -9,11 +9,12 @@
 import UIKit
 
 let cellIdentifier = "kweetCell"
-class TimelineController : UITableViewController {
+class TimelineController : UITableViewController, UITextViewDelegate {
     
     let filename = "mockup"
     var kweets = [Kweet]()
     override func viewDidLoad() {
+        tableView.tableFooterView = UIView()
         if let path = Bundle.main.path(forResource: filename, ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
@@ -28,6 +29,10 @@ class TimelineController : UITableViewController {
         }
     }
     
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        print(URL)
+        return true
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return kweets.count

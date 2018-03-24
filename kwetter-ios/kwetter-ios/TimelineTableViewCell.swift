@@ -9,9 +9,10 @@
 import UIKit
 import Kingfisher
 import SwiftyAttributes
+import RelativeFormatter
 
 class TimelineTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var userName: UILabel!
@@ -28,6 +29,9 @@ class TimelineTableViewCell: UITableViewCell {
     }
     
     func setup(kweet: Kweet) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSZ"
+        let date = formatter.date(from: kweet.createdAt)
         
         let attributedString = NSMutableAttributedString(string: kweet.text)
         
@@ -41,9 +45,11 @@ class TimelineTableViewCell: UITableViewCell {
         for userMention in kweet.entities.userMentions {
             attributedString.addAttribute(NSAttributedStringKey.link, value: userMention.name, range: userMention.range)
         }
+        
+        
         content.attributedText = attributedString
         userName.text = "@" + kweet.user.username
-        timeAgo.text = "0s"
+        timeAgo.text = date?.relativeFormatted() ?? "-"
         profileImage.kf.setImage(with: URL(string: kweet.user.profileImageUrl)!)
     }
 
