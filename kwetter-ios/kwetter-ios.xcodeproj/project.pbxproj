@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0166F6EC4DFD98976931AFF7 /* Pods_kwetter_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45470D00F0760B8E6B3695A3 /* Pods_kwetter_ios.framework */; };
 		4863CEDA206579E000B863BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CED9206579E000B863BF /* AppDelegate.swift */; };
 		4863CEE1206579E000B863BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4863CEDF206579E000B863BF /* Main.storyboard */; };
 		4863CEE3206579E000B863BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4863CEE2206579E000B863BF /* Assets.xcassets */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05227D78E5420C338F56DF90 /* Pods-kwetter-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kwetter-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-kwetter-ios/Pods-kwetter-ios.release.xcconfig"; sourceTree = "<group>"; };
+		45470D00F0760B8E6B3695A3 /* Pods_kwetter_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kwetter_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4863CED6206579E000B863BF /* kwetter-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kwetter-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4863CED9206579E000B863BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4863CEE0206579E000B863BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,6 +35,7 @@
 		4863CEF42066898200B863BF /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		4863CEF720668A5700B863BF /* mockup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockup.json; sourceTree = "<group>"; };
 		4863CEF920668DF000B863BF /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		F92F7AFDBA3F4831F1619280 /* Pods-kwetter-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kwetter-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kwetter-ios/Pods-kwetter-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +43,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0166F6EC4DFD98976931AFF7 /* Pods_kwetter_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0710980783EFE24CF10EE5E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45470D00F0760B8E6B3695A3 /* Pods_kwetter_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4863CECD206579E000B863BF = {
 			isa = PBXGroup;
 			children = (
 				4863CED8206579E000B863BF /* kwetter-ios */,
 				4863CED7206579E000B863BF /* Products */,
+				EFF2ED01D367EDDA31F604B3 /* Pods */,
+				0710980783EFE24CF10EE5E9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +110,15 @@
 			path = controllers;
 			sourceTree = "<group>";
 		};
+		EFF2ED01D367EDDA31F604B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F92F7AFDBA3F4831F1619280 /* Pods-kwetter-ios.debug.xcconfig */,
+				05227D78E5420C338F56DF90 /* Pods-kwetter-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4863CEEA206579E000B863BF /* Build configuration list for PBXNativeTarget "kwetter-ios" */;
 			buildPhases = (
+				136CE07C06F66AD68D9DF953 /* [CP] Check Pods Manifest.lock */,
 				4863CED2206579E000B863BF /* Sources */,
 				4863CED3206579E000B863BF /* Frameworks */,
 				4863CED4206579E000B863BF /* Resources */,
+				B3A9528302918F441534E2EA /* [CP] Embed Pods Frameworks */,
+				24A3E401EC56265736F772D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,6 +189,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		136CE07C06F66AD68D9DF953 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kwetter-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24A3E401EC56265736F772D8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kwetter-ios/Pods-kwetter-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3A9528302918F441534E2EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-kwetter-ios/Pods-kwetter-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kwetter-ios/Pods-kwetter-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4863CED2206579E000B863BF /* Sources */ = {
@@ -308,6 +389,7 @@
 		};
 		4863CEEB206579E000B863BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F92F7AFDBA3F4831F1619280 /* Pods-kwetter-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -323,6 +405,7 @@
 		};
 		4863CEEC206579E000B863BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05227D78E5420C338F56DF90 /* Pods-kwetter-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

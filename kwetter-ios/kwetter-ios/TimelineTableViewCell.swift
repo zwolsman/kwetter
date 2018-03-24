@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TimelineTableViewCell: UITableViewCell {
 
@@ -29,6 +30,7 @@ class TimelineTableViewCell: UITableViewCell {
         content.text = kweet.text
         userName.text = "@" + kweet.user.username
         timeAgo.text = "0s"
+        profileImage.kf.setImage(with: URL(string: kweet.user.profileImageUrl)!)
     }
 
 }
