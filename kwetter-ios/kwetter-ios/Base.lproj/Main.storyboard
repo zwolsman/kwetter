@@ -49,18 +49,73 @@
         <scene sceneID="czc-5f-a6T">
             <objects>
                 <tableViewController title="Timeline" id="xwK-9v-akV" customClass="TimelineController" customModule="kwetter_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FS0-Ty-SDi">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="144" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FS0-Ty-SDi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xon-nf-2kY">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="kweetCell" rowHeight="144" id="xon-nf-2kY" customClass="TimelineTableViewCell" customModule="kwetter_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xon-nf-2kY" id="I3U-a1-ZSb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i4M-0P-Fus">
+                                            <rect key="frame" x="8" y="8" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="Bql-6c-k4W"/>
+                                                <constraint firstAttribute="height" constant="64" id="Z3n-8U-9jS"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marvin Zwolsman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN2-nv-U5G">
+                                            <rect key="frame" x="79" y="8" width="135" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@murf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akY-GE-Rx3">
+                                            <rect key="frame" x="218" y="12.5" width="38" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.68323034048080444" green="0.70962250232696533" blue="0.7278817892074585" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rR6-9I-Cqp">
+                                            <rect key="frame" x="339" y="12.5" width="20" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.68323034049999998" green="0.70962250230000001" blue="0.72788178920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V06-tR-TDY">
+                                            <rect key="frame" x="79" y="29" width="280" height="106.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="V06-tR-TDY" secondAttribute="bottom" constant="8" id="8sg-iy-CQp"/>
+                                        <constraint firstItem="i4M-0P-Fus" firstAttribute="top" secondItem="I3U-a1-ZSb" secondAttribute="top" constant="8" id="9VQ-QF-9DZ"/>
+                                        <constraint firstItem="rN2-nv-U5G" firstAttribute="leading" secondItem="i4M-0P-Fus" secondAttribute="trailing" constant="7" id="BZf-H8-Qld"/>
+                                        <constraint firstAttribute="trailing" secondItem="V06-tR-TDY" secondAttribute="trailing" constant="16" id="EvN-TN-d5y"/>
+                                        <constraint firstItem="rR6-9I-Cqp" firstAttribute="baseline" secondItem="akY-GE-Rx3" secondAttribute="baseline" id="IBT-vB-iQh"/>
+                                        <constraint firstItem="V06-tR-TDY" firstAttribute="leading" secondItem="rN2-nv-U5G" secondAttribute="leading" id="PwT-uu-8BG"/>
+                                        <constraint firstAttribute="trailing" secondItem="rR6-9I-Cqp" secondAttribute="trailing" constant="16" id="ZrQ-PN-aIy"/>
+                                        <constraint firstItem="V06-tR-TDY" firstAttribute="top" secondItem="rN2-nv-U5G" secondAttribute="bottom" id="akC-Vp-P3x"/>
+                                        <constraint firstItem="rN2-nv-U5G" firstAttribute="top" secondItem="i4M-0P-Fus" secondAttribute="top" id="rYb-3j-8ic"/>
+                                        <constraint firstItem="i4M-0P-Fus" firstAttribute="leading" secondItem="I3U-a1-ZSb" secondAttribute="leading" constant="8" id="x7x-2q-TCn"/>
+                                        <constraint firstItem="akY-GE-Rx3" firstAttribute="leading" secondItem="rN2-nv-U5G" secondAttribute="trailing" constant="4" id="zHZ-90-XAg"/>
+                                        <constraint firstItem="akY-GE-Rx3" firstAttribute="baseline" secondItem="rN2-nv-U5G" secondAttribute="baseline" id="zXC-MA-GTH"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="content" destination="V06-tR-TDY" id="fHw-Hd-CKz"/>
+                                    <outlet property="fullName" destination="rN2-nv-U5G" id="7cx-rA-7TW"/>
+                                    <outlet property="profileImage" destination="i4M-0P-Fus" id="gPI-cj-tKc"/>
+                                    <outlet property="timeAgo" destination="rR6-9I-Cqp" id="UC4-Lu-XAE"/>
+                                    <outlet property="userName" destination="akY-GE-Rx3" id="rKZ-Vg-uAa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -72,7 +127,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cq8-wC-qMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-440"/>
+            <point key="canvasLocation" x="1900" y="-440.32983508245883"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="BXQ-Vk-DNW">
