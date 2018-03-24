@@ -9,4 +9,6 @@ target 'kwetter-ios' do
   pod 'Kingfisher', '~> 4.0'
   pod 'SwiftyAttributes'
   pod 'RelativeFormatter', '~> 0.8'
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
 end
