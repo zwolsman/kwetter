@@ -7,5 +7,5 @@ target 'kwetter-ios' do
   
   # Pods for kwetter-ios
   pod 'Kingfisher', '~> 4.0'
-
+  pod 'SwiftyAttributes'
 end

@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SwiftyAttributes
 
 class TimelineTableViewCell: UITableViewCell {
 
@@ -27,7 +28,20 @@ class TimelineTableViewCell: UITableViewCell {
     }
     
     func setup(kweet: Kweet) {
-        content.text = kweet.text
+        
+        let attributedString = NSMutableAttributedString(string: kweet.text)
+        
+        debugPrint(kweet.entities)
+        for url in kweet.entities.urls {
+            attributedString.addAttribute(NSAttributedStringKey.link, value: url.displayUrl, range: url.range)
+        }
+        for hashtag in kweet.entities.hashtags {
+            attributedString.addAttribute(NSAttributedStringKey.link, value: hashtag.text, range: hashtag.range)
+        }
+        for userMention in kweet.entities.userMentions {
+            attributedString.addAttribute(NSAttributedStringKey.link, value: userMention.name, range: userMention.range)
+        }
+        content.attributedText = attributedString
         userName.text = "@" + kweet.user.username
         timeAgo.text = "0s"
         profileImage.kf.setImage(with: URL(string: kweet.user.profileImageUrl)!)

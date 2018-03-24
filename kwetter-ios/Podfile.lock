@@ -1,12 +1,15 @@
 PODS:
   - Kingfisher (4.6.4)
+  - SwiftyAttributes (4.1.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 4.0)
+  - SwiftyAttributes
 
 SPEC CHECKSUMS:
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
+  SwiftyAttributes: cef9463f6e7da1ab393896ca036c9ac37d8a406b
 
-PODFILE CHECKSUM: 38c68400b536f6195b0312ce408ce4b982955dd8
+PODFILE CHECKSUM: 25ec8c2222544cbf8ce50127fd33dd98c01578d4
 
 COCOAPODS: 1.4.0
