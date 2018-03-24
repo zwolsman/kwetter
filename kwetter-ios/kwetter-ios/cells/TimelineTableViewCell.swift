@@ -18,7 +18,8 @@ class TimelineTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var timeAgo: UILabel!
     @IBOutlet weak var content: UITextView!
-    
+    private let processor = RoundCornerImageProcessor(cornerRadius: 100)
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -50,7 +51,8 @@ class TimelineTableViewCell: UITableViewCell {
         content.attributedText = attributedString
         userName.text = "@" + kweet.user.username
         timeAgo.text = date?.relativeFormatted() ?? "-"
-        profileImage.kf.setImage(with: URL(string: kweet.user.profileImageUrl)!)
+        
+        profileImage.kf.setImage(with: URL(string: kweet.user.profileImageUrl)!, placeholder: nil, options: [.processor(processor)])
     }
 
 }
