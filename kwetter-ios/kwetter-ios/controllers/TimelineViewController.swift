@@ -15,10 +15,11 @@ class TimelineController : UITableViewController, UITextViewDelegate {
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
+        tableView.register(UINib(nibName: "KweetTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.tableFooterView = UIView()
         tableView.dataSource = nil
         tableView.delegate = nil
-        ApiService.timeline.bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: TimelineTableViewCell.self)) {  _, element, cell in
+        ApiService.timeline.bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: KweetTableViewCell.self)) {  _, element, cell in
                 cell.setup(kweet: element)
             }
             .disposed(by: disposeBag)

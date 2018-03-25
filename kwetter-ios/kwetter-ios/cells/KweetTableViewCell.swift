@@ -11,7 +11,7 @@ import Kingfisher
 import SwiftyAttributes
 import RelativeFormatter
 
-class TimelineTableViewCell: UITableViewCell {
+class KweetTableViewCell: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullName: UILabel!
