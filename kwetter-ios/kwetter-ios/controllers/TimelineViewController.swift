@@ -28,4 +28,14 @@ class TimelineController : UITableViewController, UITextViewDelegate {
         print(URL)
         return true
     }
+    
+    var halfModalTransitioningDelegate: HalfModalTransitioningDelegate?
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        self.halfModalTransitioningDelegate = HalfModalTransitioningDelegate(viewController: self, presentingViewController: segue.destination)
+        
+        segue.destination.modalPresentationStyle = .custom
+        segue.destination.transitioningDelegate = self.halfModalTransitioningDelegate
+    }
 }

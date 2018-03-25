@@ -18,6 +18,12 @@
 		4863CEF52066898200B863BF /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEF42066898200B863BF /* TimelineViewController.swift */; };
 		4863CEFA20668DF000B863BF /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEF920668DF000B863BF /* TimelineTableViewCell.swift */; };
 		4863CEFC2066BBA900B863BF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEFB2066BBA900B863BF /* Api.swift */; };
+		4863CF002066CAC500B863BF /* AppNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEFF2066CAC500B863BF /* AppNavController.swift */; };
+		4863CF092066CBA500B863BF /* HalfModalInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CF062066CBA400B863BF /* HalfModalInteractiveTransition.swift */; };
+		4863CF0A2066CBA500B863BF /* HalfModalTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CF072066CBA400B863BF /* HalfModalTransitionAnimator.swift */; };
+		4863CF0B2066CBA500B863BF /* HalfModalTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CF082066CBA500B863BF /* HalfModalTransitioningDelegate.swift */; };
+		4863CF0E2066CBB900B863BF /* HalfModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CF0D2066CBB900B863BF /* HalfModalPresentationController.swift */; };
+		4863CF102066CE3300B863BF /* CreateKweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CF0F2066CE3300B863BF /* CreateKweetController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +41,12 @@
 		4863CEF42066898200B863BF /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		4863CEF920668DF000B863BF /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		4863CEFB2066BBA900B863BF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		4863CEFF2066CAC500B863BF /* AppNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavController.swift; sourceTree = "<group>"; };
+		4863CF062066CBA400B863BF /* HalfModalInteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfModalInteractiveTransition.swift; sourceTree = "<group>"; };
+		4863CF072066CBA400B863BF /* HalfModalTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfModalTransitionAnimator.swift; sourceTree = "<group>"; };
+		4863CF082066CBA500B863BF /* HalfModalTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfModalTransitioningDelegate.swift; sourceTree = "<group>"; };
+		4863CF0D2066CBB900B863BF /* HalfModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfModalPresentationController.swift; sourceTree = "<group>"; };
+		4863CF0F2066CE3300B863BF /* CreateKweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateKweetController.swift; sourceTree = "<group>"; };
 		F92F7AFDBA3F4831F1619280 /* Pods-kwetter-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kwetter-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kwetter-ios/Pods-kwetter-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +91,8 @@
 		4863CED8206579E000B863BF /* kwetter-ios */ = {
 			isa = PBXGroup;
 			children = (
+				4863CF0C2066CBAA00B863BF /* presentation */,
+				4863CF052066CB9000B863BF /* transitioning */,
 				4863CEFE2066C12600B863BF /* services */,
 				4863CEFD2066C11C00B863BF /* cells */,
 				4863CEF62066898800B863BF /* controllers */,
@@ -106,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				4863CEF42066898200B863BF /* TimelineViewController.swift */,
+				4863CEFF2066CAC500B863BF /* AppNavController.swift */,
+				4863CF0F2066CE3300B863BF /* CreateKweetController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -124,6 +140,24 @@
 				4863CEFB2066BBA900B863BF /* Api.swift */,
 			);
 			path = services;
+			sourceTree = "<group>";
+		};
+		4863CF052066CB9000B863BF /* transitioning */ = {
+			isa = PBXGroup;
+			children = (
+				4863CF062066CBA400B863BF /* HalfModalInteractiveTransition.swift */,
+				4863CF072066CBA400B863BF /* HalfModalTransitionAnimator.swift */,
+				4863CF082066CBA500B863BF /* HalfModalTransitioningDelegate.swift */,
+			);
+			path = transitioning;
+			sourceTree = "<group>";
+		};
+		4863CF0C2066CBAA00B863BF /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4863CF0D2066CBB900B863BF /* HalfModalPresentationController.swift */,
+			);
+			path = presentation;
 			sourceTree = "<group>";
 		};
 		EFF2ED01D367EDDA31F604B3 /* Pods */ = {
@@ -275,9 +309,15 @@
 				4863CEF22066883E00B863BF /* KweetEntities.swift in Sources */,
 				4863CEF32066883E00B863BF /* KweetUser.swift in Sources */,
 				4863CEF12066883E00B863BF /* Kweet.swift in Sources */,
+				4863CF0B2066CBA500B863BF /* HalfModalTransitioningDelegate.swift in Sources */,
+				4863CF102066CE3300B863BF /* CreateKweetController.swift in Sources */,
+				4863CF002066CAC500B863BF /* AppNavController.swift in Sources */,
 				4863CEDA206579E000B863BF /* AppDelegate.swift in Sources */,
+				4863CF092066CBA500B863BF /* HalfModalInteractiveTransition.swift in Sources */,
 				4863CEFA20668DF000B863BF /* TimelineTableViewCell.swift in Sources */,
+				4863CF0E2066CBB900B863BF /* HalfModalPresentationController.swift in Sources */,
 				4863CEFC2066BBA900B863BF /* Api.swift in Sources */,
+				4863CF0A2066CBA500B863BF /* HalfModalTransitionAnimator.swift in Sources */,
 				4863CEF52066898200B863BF /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

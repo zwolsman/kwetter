@@ -128,17 +128,79 @@
                             <outlet property="delegate" destination="xwK-9v-akV" id="aex-ig-Zvr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Timeline" id="VUB-H3-bnA"/>
+                    <navigationItem key="navigationItem" title="Timeline" id="VUB-H3-bnA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="2Kq-ia-68g">
+                            <connections>
+                                <segue destination="Zu0-Vz-BPe" kind="presentation" id="7RI-mt-M9w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cq8-wC-qMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1900" y="-440.32983508245883"/>
         </scene>
+        <!--App Nav Controller-->
+        <scene sceneID="Vee-ei-qPG">
+            <objects>
+                <navigationController id="Zu0-Vz-BPe" customClass="AppNavController" customModule="kwetter_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hp3-dy-NX8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wfT-3i-tCL" kind="relationship" relationship="rootViewController" id="J5X-nl-2Bx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YUd-Rd-tSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2915" y="-432"/>
+        </scene>
+        <!--Create Kweet-->
+        <scene sceneID="hL6-dU-NYD">
+            <objects>
+                <viewController id="wfT-3i-tCL" customClass="CreateKweetViewController" customModule="kwetter_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hgT-xU-IXa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Kweet" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mW1-X6-om8">
+                                <rect key="frame" x="16" y="80" width="312" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVv-I3-dyD">
+                                <rect key="frame" x="336" y="80" width="31" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="fDH-W0-Bpi"/>
+                                </constraints>
+                                <state key="normal" title="Post"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mVv-I3-dyD" firstAttribute="leading" secondItem="mW1-X6-om8" secondAttribute="trailing" constant="8" id="12h-2i-ZcI"/>
+                            <constraint firstItem="mW1-X6-om8" firstAttribute="top" secondItem="ch6-be-61R" secondAttribute="top" constant="16" id="2Lz-eF-2wq"/>
+                            <constraint firstItem="ch6-be-61R" firstAttribute="trailing" secondItem="mVv-I3-dyD" secondAttribute="trailing" constant="8" id="Dy7-os-KCi"/>
+                            <constraint firstItem="mVv-I3-dyD" firstAttribute="top" secondItem="ch6-be-61R" secondAttribute="top" constant="16" id="NWH-1W-fa8"/>
+                            <constraint firstItem="mW1-X6-om8" firstAttribute="leading" secondItem="ch6-be-61R" secondAttribute="leading" constant="16" id="WPF-qV-0PY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ch6-be-61R"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Kweet" id="MdF-UC-g7u">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="51m-Wd-Wj8"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sqn-W4-ZNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3888.8000000000002" y="-422.33883058470769"/>
+        </scene>
         <!--Timeline-->
         <scene sceneID="BXQ-Vk-DNW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k1i-ff-2Ib" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Timeline" id="tGz-ht-aUM"/>
+                    <tabBarItem key="tabBarItem" title="Timeline" image="home" selectedImage="home-filled" id="tGz-ht-aUM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="aFt-EK-eHi">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -157,7 +219,7 @@
         <scene sceneID="Wi4-HI-vdT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mCR-Yf-5iA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="contacts" selectedImage="contacts-filled" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0tv-1e-0dC">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -173,5 +235,11 @@
             <point key="canvasLocation" x="806.39999999999998" y="361.61919040479762"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="contacts" width="20" height="21"/>
+        <image name="contacts-filled" width="20" height="21"/>
+        <image name="home" width="24" height="24"/>
+        <image name="home-filled" width="23" height="23"/>
+    </resources>
     <color key="tintColor" red="0.16847139596939087" green="0.51802176237106323" blue="0.82454192638397217" alpha="1" colorSpace="calibratedRGB"/>
 </document>
