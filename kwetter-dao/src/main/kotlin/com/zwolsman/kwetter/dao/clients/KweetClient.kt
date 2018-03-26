@@ -2,23 +2,22 @@ package com.zwolsman.kwetter.dao.clients
 
 import com.zwolsman.kwetter.dao.models.Kweet
 import org.springframework.cloud.openfeign.FeignClient
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.web.bind.annotation.*
 
 @FeignClient("kweet-service", url = "http://kweet-service")
 interface KweetClient {
 
-    @RequestMapping("{name}/kweets", method= [RequestMethod.GET])
+    @GetMapping("/{name}/kweets")
     fun findByUsername(@PathVariable name: String) : List<Kweet>
 
-    @RequestMapping("{id}", method = [RequestMethod.GET])
+    @GetMapping("/{id}")
     fun findById(@PathVariable id: String) : Kweet
 
-    @RequestMapping("{name}/timeline", method = [RequestMethod.GET])
-    fun getTimeline(@PathVariable name: String) : List<Kweet>
+    @GetMapping("/{name}/timeline/")
+    fun getTimelinePaged(@PathVariable name: String, pageable: Pageable) : Page<Kweet>
 
-    @RequestMapping(method = [RequestMethod.POST])
+    @PostMapping
     fun createKweet(@RequestParam text: String, @RequestParam userId: String): Kweet
 }

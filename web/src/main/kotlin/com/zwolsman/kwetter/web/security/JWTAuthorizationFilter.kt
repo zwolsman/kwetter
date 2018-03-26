@@ -28,10 +28,12 @@ class JWTAuthorizationFilter(authenticationManager: AuthenticationManager) : Bas
         try {
             val user = JWT.decode(token)
             SecurityContextHolder.getContext().authentication = UsernamePasswordAuthenticationToken(user.subject, null, emptyList())
-            chain.doFilter(request, response)
         } catch (_: Exception) {
+            SecurityContextHolder.getContext().authentication = null
             throw BadCredentialsException("Failed to decode jwt authentication token")
         }
+        chain.doFilter(request, response)
+
 
     }
 }

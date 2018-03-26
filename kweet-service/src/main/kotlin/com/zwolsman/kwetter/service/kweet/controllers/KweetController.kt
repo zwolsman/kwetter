@@ -2,6 +2,8 @@ package com.zwolsman.kwetter.service.kweet.controllers
 
 import com.zwolsman.kwetter.dao.models.Kweet
 import com.zwolsman.kwetter.service.kweet.services.KweetService
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
@@ -18,7 +20,7 @@ class KweetController(private val kweetService: KweetService) {
     fun byUsername(@PathVariable name: String) = kweetService.findByUsername(name)
 
     @GetMapping("{name}/timeline")
-    fun getTimeline(@PathVariable name: String) = kweetService.loadTimeline(name)
+    fun getTimelinePaged(@PathVariable name: String, pageable: Pageable) = kweetService.loadTimeline(name, pageable)
 
     @GetMapping("{kweetId}")
     fun byId(@PathVariable kweetId: String) = kweetService.findById(kweetId)
