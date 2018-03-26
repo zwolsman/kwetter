@@ -16,11 +16,6 @@ class UserController(private val userService: UserService) {
         return userService.register(username, password)
     }
 
-    @PostMapping("login")
-    fun login(@RequestParam username: String, @RequestParam password: String): KwetterUser {
-        return userService.login(username, password)
-    }
-
     @GetMapping("{name}")
     fun byUsername(@PathVariable name: String) : KwetterUser {
         return userService.findByUsername(name)

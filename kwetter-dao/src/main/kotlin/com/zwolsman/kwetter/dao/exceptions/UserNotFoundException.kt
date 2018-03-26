@@ -1,4 +1,4 @@
-package com.zwolsman.kwetter.service.account.exceptions
+package com.zwolsman.kwetter.dao.exceptions
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ResponseStatus

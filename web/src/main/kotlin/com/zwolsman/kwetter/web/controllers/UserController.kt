@@ -21,4 +21,5 @@ class UserController(private val userClient: UserClient, private val kweetClient
 
     @PostMapping
     fun register(@RequestParam username: String, @RequestParam password: String) = KwetterUserResource(userClient.register(username, password), 0)
+
 }
