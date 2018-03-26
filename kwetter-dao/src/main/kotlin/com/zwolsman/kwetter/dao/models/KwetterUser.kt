@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class KwetterUser(@Id
                        val username: String,
-                       @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+                       //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY) TODO make this configurable
                        val password: String = "",
                        val profileImageUrl: String = "http://via.placeholder.com/200x200",
                        var followersCount:Int = 0,
