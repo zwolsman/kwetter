@@ -21,6 +21,6 @@ class TokenService(private val userClient: UserClient) : AuthenticationSuccessHa
     override fun onAuthenticationSuccess(request: HttpServletRequest, response: HttpServletResponse, authentication: Authentication) {
         val user = userClient.findByUsername(authentication.name)
         response.addHeader(HttpHeaders.AUTHORIZATION, PREFIX + JWT.create()
-                .withClaim("username", user.username).sign(algo))
+                .withSubject(user.username).sign(algo))
     }
 }

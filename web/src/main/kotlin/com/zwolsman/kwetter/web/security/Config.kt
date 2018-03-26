@@ -26,7 +26,7 @@ class Config(private val userDetailsService: UserDetailsServiceImpl, private val
                 .anyRequest().authenticated()
                 .and()
                 .addFilterAfter(JWTAuthenticationFilter(authenticationManager(), tokenService), BasicAuthenticationFilter::class.java)
-                //.addFilterAfter(JWTAuthorizationFilter(authenticationManager()), BasicAuthenticationFilter::class.java)
+                .addFilterAfter(JWTAuthorizationFilter(authenticationManager()), BasicAuthenticationFilter::class.java)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().headers().disable()
     }
