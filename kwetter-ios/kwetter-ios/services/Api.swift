@@ -22,16 +22,30 @@ class ApiService {
     
     enum Endpoint {
         case timeline
+        case tweets(user: String)
+        case info(user: String)
         var path: String {
             switch(self) {
             case .timeline:
                 return "/user/"
+            case .tweets(let user):
+                return "/user/\(user)/kweets"
+            case .info(let user):
+                return "/user/\(user)"
             }
         }
     }
     
     static var timeline:Observable<[Kweet]> {
         return request(endpoint: .timeline, query: ["user": "tester"]) //TODO login stuff
+    }
+    
+    static func tweetsFor(user: String) -> Observable<[Kweet]> {
+        return request(endpoint: .tweets(user: user))
+    }
+    
+    static func infoFor(user: String) -> Observable<KweetUserResource> {
+        return request(endpoint: .info(user: user))
     }
     
     private static func request<T>(endpoint: Endpoint, query: [String: CustomStringConvertible] = [:], method: HttpMethod = HttpMethod.get) -> Observable<T> where T : Codable {

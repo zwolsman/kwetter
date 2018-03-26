@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct KweetUserResource : Codable {
+    let username : String
+    let profileImageUrl : String
+    let followersCount : Int
+    let friendsCount : Int
+    let kweetCount: Int
+}

@@ -18,11 +18,10 @@ class KweetTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var timeAgo: UILabel!
     @IBOutlet weak var content: UITextView!
-    private let processor = RoundCornerImageProcessor(cornerRadius: 100)
+    private let processor = ResizingImageProcessor(referenceSize: CGSize(width: 200, height: 200)) >> RoundCornerImageProcessor(cornerRadius: 100)
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
