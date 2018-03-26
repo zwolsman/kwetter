@@ -1,18 +1,16 @@
 package com.zwolsman.kwetter.web.security
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import org.springframework.http.HttpHeaders
 import org.springframework.security.authentication.AuthenticationManager
-import org.springframework.security.core.Authentication
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
 
-class JWTAuthenticationFilter(authenticationManager: AuthenticationManager) : UsernamePasswordAuthenticationFilter(), AuthenticationSuccessHandler {
+class JWTAuthenticationFilter(authenticationManager: AuthenticationManager, authenticationSuccessHandler: AuthenticationSuccessHandler? = null) : UsernamePasswordAuthenticationFilter() {
     init {
         setAuthenticationManager(authenticationManager)
-        setAuthenticationSuccessHandler(this)
+        if (authenticationSuccessHandler != null)
+            setAuthenticationSuccessHandler(authenticationSuccessHandler)
     }
 
     data class UsernamePassword(val username: String = "", val password: String = "")
@@ -31,7 +29,4 @@ class JWTAuthenticationFilter(authenticationManager: AuthenticationManager) : Us
         super.obtainPassword(request)
     }
 
-    override fun onAuthenticationSuccess(request: HttpServletRequest, response: HttpServletResponse, authentication: Authentication) {
-        response.addHeader(HttpHeaders.AUTHORIZATION, "Bearer <token>")
-    }
 }

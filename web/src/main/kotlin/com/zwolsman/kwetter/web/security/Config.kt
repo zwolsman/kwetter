@@ -18,14 +18,14 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 @EnableWebSecurity
 @Configuration
 @EnableGlobalMethodSecurity
-class Config(private val userDetailsService: UserDetailsServiceImpl, private val bCryptPasswordEncoder: BCryptPasswordEncoder) : WebSecurityConfigurerAdapter() {
+class Config(private val userDetailsService: UserDetailsServiceImpl, private val bCryptPasswordEncoder: BCryptPasswordEncoder, private val tokenService: TokenService) : WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity) {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/user/").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .addFilterAfter(JWTAuthenticationFilter(authenticationManager()), BasicAuthenticationFilter::class.java)
+                .addFilterAfter(JWTAuthenticationFilter(authenticationManager(), tokenService), BasicAuthenticationFilter::class.java)
                 //.addFilterAfter(JWTAuthorizationFilter(authenticationManager()), BasicAuthenticationFilter::class.java)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().headers().disable()
