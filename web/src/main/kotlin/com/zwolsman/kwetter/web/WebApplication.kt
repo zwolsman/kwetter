@@ -21,4 +21,6 @@ class WebApplication {
 
     @Bean
     fun bCryptPasswordEncoder() = BCryptPasswordEncoder()
+
+
 }

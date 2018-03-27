@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
 import org.springframework.data.repository.support.PageableExecutionUtils
 import org.springframework.stereotype.Service
+
 @Service
 class KweetService(private val kweetRepository: KweetRepository, private val userClient: UserClient, private val template: MongoTemplate) {
 
