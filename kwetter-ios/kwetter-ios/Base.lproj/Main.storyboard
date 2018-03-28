@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -180,7 +181,9 @@
                     <navigationItem key="navigationItem" title="Timeline" id="VUB-H3-bnA">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="2Kq-ia-68g">
                             <connections>
-                                <segue destination="Zu0-Vz-BPe" kind="presentation" id="7RI-mt-M9w"/>
+                                <segue destination="fVy-vn-1rc" kind="popoverPresentation" customClass="AlwaysPopupSegue" customModule="kwetter_ios" customModuleProvider="target" popoverAnchorBarButtonItem="2Kq-ia-68g" id="eNr-Oa-eQQ">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -189,61 +192,102 @@
             </objects>
             <point key="canvasLocation" x="1900" y="-440.32983508245883"/>
         </scene>
-        <!--App Nav Controller-->
-        <scene sceneID="Vee-ei-qPG">
+        <!--Create Kweet View Controller-->
+        <scene sceneID="z4R-ZW-aW9">
             <objects>
-                <navigationController id="Zu0-Vz-BPe" customClass="AppNavController" customModule="kwetter_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hp3-dy-NX8">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="wfT-3i-tCL" kind="relationship" relationship="rootViewController" id="J5X-nl-2Bx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YUd-Rd-tSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2913" y="-440"/>
-        </scene>
-        <!--Create Kweet-->
-        <scene sceneID="hL6-dU-NYD">
-            <objects>
-                <viewController id="wfT-3i-tCL" customClass="CreateKweetViewController" customModule="kwetter_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hgT-xU-IXa">
+                <viewController id="fVy-vn-1rc" customClass="CreateKweetViewController" customModule="kwetter_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zEf-NN-xVh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Kweet" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mW1-X6-om8">
-                                <rect key="frame" x="16" y="80" width="312" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVv-I3-dyD">
-                                <rect key="frame" x="336" y="80" width="31" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LoP-Yr-jND">
+                                <rect key="frame" x="16" y="36" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="31" id="fDH-W0-Bpi"/>
+                                    <constraint firstAttribute="width" constant="50" id="hBB-xt-Z9Y"/>
+                                    <constraint firstAttribute="height" constant="50" id="so6-dx-U1A"/>
                                 </constraints>
-                                <state key="normal" title="Post"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PMG-c5-eIP">
+                                <rect key="frame" x="74" y="36" width="285" height="573"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="What's happning?"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="fVy-vn-1rc" id="0Cd-ul-03n"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIG-PR-Huk">
+                                <rect key="frame" x="74" y="617" width="285" height="30"/>
+                                <state key="normal" title="Kweet!"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1k-ZI-mzc" customClass="MBCircularProgressBarView">
+                                <rect key="frame" x="26" y="617" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="u1k-ZI-mzc" secondAttribute="height" multiplier="1:1" id="TvS-zE-1Xq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showValueString" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showUnitString" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="140"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                        <color key="value" red="0.168471396" green="0.51802176239999997" blue="0.82454192640000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
+                                        <color key="value" red="0.168471396" green="0.51802176239999997" blue="0.82454192640000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
+                                        <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyLineStrokeColor">
+                                        <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mVv-I3-dyD" firstAttribute="leading" secondItem="mW1-X6-om8" secondAttribute="trailing" constant="8" id="12h-2i-ZcI"/>
-                            <constraint firstItem="mW1-X6-om8" firstAttribute="top" secondItem="ch6-be-61R" secondAttribute="top" constant="16" id="2Lz-eF-2wq"/>
-                            <constraint firstItem="ch6-be-61R" firstAttribute="trailing" secondItem="mVv-I3-dyD" secondAttribute="trailing" constant="8" id="Dy7-os-KCi"/>
-                            <constraint firstItem="mVv-I3-dyD" firstAttribute="top" secondItem="ch6-be-61R" secondAttribute="top" constant="16" id="NWH-1W-fa8"/>
-                            <constraint firstItem="mW1-X6-om8" firstAttribute="leading" secondItem="ch6-be-61R" secondAttribute="leading" constant="16" id="WPF-qV-0PY"/>
+                            <constraint firstItem="bby-pQ-IPW" firstAttribute="trailing" secondItem="hIG-PR-Huk" secondAttribute="trailing" constant="16" id="1Bt-8r-95j"/>
+                            <constraint firstItem="u1k-ZI-mzc" firstAttribute="centerX" secondItem="LoP-Yr-jND" secondAttribute="centerX" id="2BI-YR-SMC"/>
+                            <constraint firstItem="hIG-PR-Huk" firstAttribute="top" secondItem="PMG-c5-eIP" secondAttribute="bottom" constant="8" id="6Se-nb-iV1"/>
+                            <constraint firstItem="LoP-Yr-jND" firstAttribute="top" secondItem="bby-pQ-IPW" secondAttribute="top" constant="16" id="6wg-cR-WLc"/>
+                            <constraint firstItem="bby-pQ-IPW" firstAttribute="bottom" secondItem="hIG-PR-Huk" secondAttribute="bottom" constant="20" id="AdI-CT-q92"/>
+                            <constraint firstItem="u1k-ZI-mzc" firstAttribute="top" secondItem="hIG-PR-Huk" secondAttribute="top" id="ENw-fg-gau"/>
+                            <constraint firstItem="LoP-Yr-jND" firstAttribute="leading" secondItem="bby-pQ-IPW" secondAttribute="leading" constant="16" id="FaJ-o8-rFt"/>
+                            <constraint firstItem="bby-pQ-IPW" firstAttribute="trailing" secondItem="PMG-c5-eIP" secondAttribute="trailing" constant="16" id="ZeK-tF-HHB"/>
+                            <constraint firstItem="hIG-PR-Huk" firstAttribute="leading" secondItem="PMG-c5-eIP" secondAttribute="leading" id="eBf-Bk-rbj"/>
+                            <constraint firstItem="PMG-c5-eIP" firstAttribute="top" secondItem="bby-pQ-IPW" secondAttribute="top" constant="16" id="sdx-0Q-ojC"/>
+                            <constraint firstItem="PMG-c5-eIP" firstAttribute="leading" secondItem="LoP-Yr-jND" secondAttribute="trailing" constant="8" id="tgU-Uq-hRZ"/>
+                            <constraint firstItem="u1k-ZI-mzc" firstAttribute="bottom" secondItem="hIG-PR-Huk" secondAttribute="bottom" id="xKi-xz-1UG"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ch6-be-61R"/>
+                        <viewLayoutGuide key="safeArea" id="bby-pQ-IPW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Kweet" id="MdF-UC-g7u">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="51m-Wd-Wj8"/>
-                    </navigationItem>
+                    <connections>
+                        <outlet property="profileImage" destination="LoP-Yr-jND" id="WLv-UJ-ZYD"/>
+                        <outlet property="progress" destination="u1k-ZI-mzc" id="mR2-Z7-Kpz"/>
+                        <outlet property="textView" destination="PMG-c5-eIP" id="VeW-VI-BAd"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sqn-W4-ZNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XTo-ty-Wsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3889" y="-440"/>
+            <point key="canvasLocation" x="2904.8000000000002" y="-440.32983508245883"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="BXQ-Vk-DNW">

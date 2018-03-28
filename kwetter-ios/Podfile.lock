@@ -1,25 +1,31 @@
 PODS:
   - Kingfisher (4.6.4)
+  - MBCircularProgressBar (0.3.5)
   - RelativeFormatter (0.8.3)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
   - SwiftyAttributes (4.1.0)
+  - UITextView+Placeholder (1.2.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 4.0)
+  - MBCircularProgressBar
   - RelativeFormatter (~> 0.8)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
   - SwiftyAttributes
+  - UITextView+Placeholder (~> 1.2)
 
 SPEC CHECKSUMS:
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
+  MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   RelativeFormatter: 13508ccd19bbab46ca95cf847a0db6e80601c9a4
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SwiftyAttributes: cef9463f6e7da1ab393896ca036c9ac37d8a406b
+  UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
 
-PODFILE CHECKSUM: 565a7a63e5429c2a38e302af0bae5d8c12708893
+PODFILE CHECKSUM: 845201b26088a54f66f0d40f8d3919e6b698270a
 
 COCOAPODS: 1.4.0

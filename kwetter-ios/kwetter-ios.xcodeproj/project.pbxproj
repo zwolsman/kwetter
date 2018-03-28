@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0166F6EC4DFD98976931AFF7 /* Pods_kwetter_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45470D00F0760B8E6B3695A3 /* Pods_kwetter_ios.framework */; };
+		48004F35206B80B500F4E710 /* AlwaysPopupSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48004F34206B80B500F4E710 /* AlwaysPopupSegue.swift */; };
 		4863CEDA206579E000B863BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CED9206579E000B863BF /* AppDelegate.swift */; };
 		4863CEE1206579E000B863BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4863CEDF206579E000B863BF /* Main.storyboard */; };
 		4863CEE3206579E000B863BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4863CEE2206579E000B863BF /* Assets.xcassets */; };
@@ -18,7 +19,6 @@
 		4863CEF52066898200B863BF /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEF42066898200B863BF /* TimelineViewController.swift */; };
 		4863CEFA20668DF000B863BF /* KweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEF920668DF000B863BF /* KweetTableViewCell.swift */; };
 		4863CEFC2066BBA900B863BF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEFB2066BBA900B863BF /* Api.swift */; };
-		4863CF002066CAC500B863BF /* AppNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CEFF2066CAC500B863BF /* AppNavController.swift */; };
 		4863CF092066CBA500B863BF /* HalfModalInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CF062066CBA400B863BF /* HalfModalInteractiveTransition.swift */; };
 		4863CF0A2066CBA500B863BF /* HalfModalTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CF072066CBA400B863BF /* HalfModalTransitionAnimator.swift */; };
 		4863CF0B2066CBA500B863BF /* HalfModalTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4863CF082066CBA500B863BF /* HalfModalTransitioningDelegate.swift */; };
@@ -32,6 +32,7 @@
 /* Begin PBXFileReference section */
 		05227D78E5420C338F56DF90 /* Pods-kwetter-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kwetter-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-kwetter-ios/Pods-kwetter-ios.release.xcconfig"; sourceTree = "<group>"; };
 		45470D00F0760B8E6B3695A3 /* Pods_kwetter_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kwetter_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48004F34206B80B500F4E710 /* AlwaysPopupSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysPopupSegue.swift; sourceTree = "<group>"; };
 		4863CED6206579E000B863BF /* kwetter-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kwetter-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4863CED9206579E000B863BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4863CEE0206579E000B863BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,7 +45,6 @@
 		4863CEF42066898200B863BF /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		4863CEF920668DF000B863BF /* KweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KweetTableViewCell.swift; sourceTree = "<group>"; };
 		4863CEFB2066BBA900B863BF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		4863CEFF2066CAC500B863BF /* AppNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavController.swift; sourceTree = "<group>"; };
 		4863CF062066CBA400B863BF /* HalfModalInteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfModalInteractiveTransition.swift; sourceTree = "<group>"; };
 		4863CF072066CBA400B863BF /* HalfModalTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfModalTransitionAnimator.swift; sourceTree = "<group>"; };
 		4863CF082066CBA500B863BF /* HalfModalTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfModalTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +76,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		48004F33206B80A600F4E710 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				48004F34206B80B500F4E710 /* AlwaysPopupSegue.swift */,
+			);
+			path = Segues;
+			sourceTree = "<group>";
+		};
 		4863CECD206579E000B863BF = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +105,7 @@
 		4863CED8206579E000B863BF /* kwetter-ios */ = {
 			isa = PBXGroup;
 			children = (
+				48004F33206B80A600F4E710 /* Segues */,
 				4863CF0C2066CBAA00B863BF /* presentation */,
 				4863CF052066CB9000B863BF /* transitioning */,
 				4863CEFE2066C12600B863BF /* services */,
@@ -127,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				4863CEF42066898200B863BF /* TimelineViewController.swift */,
-				4863CEFF2066CAC500B863BF /* AppNavController.swift */,
 				4863CF0F2066CE3300B863BF /* CreateKweetController.swift */,
 				48B498932067C8B400A53940 /* ProfileViewController.swift */,
 			);
@@ -291,18 +299,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-kwetter-ios/Pods-kwetter-ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
 				"${BUILT_PRODUCTS_DIR}/RelativeFormatter/RelativeFormatter.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyAttributes/SwiftyAttributes.framework",
+				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RelativeFormatter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyAttributes.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -316,13 +328,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48004F35206B80B500F4E710 /* AlwaysPopupSegue.swift in Sources */,
 				4863CEF22066883E00B863BF /* KweetEntities.swift in Sources */,
 				4863CEF32066883E00B863BF /* KweetUser.swift in Sources */,
 				4863CEF12066883E00B863BF /* Kweet.swift in Sources */,
 				4863CF0B2066CBA500B863BF /* HalfModalTransitioningDelegate.swift in Sources */,
 				48B498942067C8B400A53940 /* ProfileViewController.swift in Sources */,
 				4863CF102066CE3300B863BF /* CreateKweetController.swift in Sources */,
-				4863CF002066CAC500B863BF /* AppNavController.swift in Sources */,
 				4863CEDA206579E000B863BF /* AppDelegate.swift in Sources */,
 				4863CF092066CBA500B863BF /* HalfModalInteractiveTransition.swift in Sources */,
 				4863CEFA20668DF000B863BF /* KweetTableViewCell.swift in Sources */,

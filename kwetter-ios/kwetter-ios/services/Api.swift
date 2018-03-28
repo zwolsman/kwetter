@@ -11,14 +11,14 @@ import RxSwift
 import RxCocoa
 
 class ApiService {
-    private static let HOST = "192.168.178.45"
+    private static let HOST = "145.93.129.15"
     private static let PORT = 8080
     private static let PROTOCOL = "http"
     private static let PATH = "/api"
     private static let BASE_URL = "\(PROTOCOL)://\(HOST):\(PORT)\(PATH)"
     
     private static let decoder = JSONDecoder()
- 
+    private static var token: String? = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZXIifQ.C4mgBFyMNf5TUhA3ddhqxbmFYADLIgZh3GYqPsoOorE"
     
     enum Endpoint {
         case timeline
@@ -37,10 +37,12 @@ class ApiService {
     }
     
     static var timeline:Observable<[Kweet]> {
+        return Observable.empty()
         return request(endpoint: .timeline, query: ["user": "tester"]) //TODO login stuff
     }
     
     static func tweetsFor(user: String) -> Observable<[Kweet]> {
+        return Observable.empty()
         return request(endpoint: .tweets(user: user))
     }
     
@@ -74,14 +76,19 @@ class ApiService {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
+        if(token != nil) {
+            request.addValue("Bearer \(token!)", forHTTPHeaderField: "Authorization")
+        }
+        
         
         let response = URLSession.shared.rx.response(request: request)
         return response.map { _, data in
-            if let json = try? decoder.decode(T.self, from: data) {
-                return json
-            }
-            debugPrint(String(bytes: data, encoding: .utf8)!)
-            fatalError("Error decodoing stuff")
+            print(String(bytes: data, encoding: .utf8)!)
+            return try! decoder.decode(T.self, from: data) //{
+//                return json
+//            }
+//            debugPrint(String(bytes: data, encoding: .utf8)!)
+//            fatalError("Error decodoing stuff")
         }
 
     }

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 let cellIdentifier = "kweetCell"
-class TimelineController : UITableViewController, UITextViewDelegate {
+class TimelineController : UITableViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
     
     let disposeBag = DisposeBag()
     
@@ -30,13 +30,7 @@ class TimelineController : UITableViewController, UITextViewDelegate {
         return true
     }
     
-    var halfModalTransitioningDelegate: HalfModalTransitioningDelegate?
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        self.halfModalTransitioningDelegate = HalfModalTransitioningDelegate(viewController: self, presentingViewController: segue.destination)
-        
-        segue.destination.modalPresentationStyle = .custom
-        segue.destination.transitioningDelegate = self.halfModalTransitioningDelegate
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }

@@ -11,4 +11,6 @@ target 'kwetter-ios' do
   pod 'RelativeFormatter', '~> 0.8'
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
+  pod "MBCircularProgressBar"
+  pod 'UITextView+Placeholder', '~> 1.2'
 end
