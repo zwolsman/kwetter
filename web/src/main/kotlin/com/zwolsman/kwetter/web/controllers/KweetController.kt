@@ -4,6 +4,7 @@ import com.zwolsman.kwetter.dao.clients.KweetClient
 import com.zwolsman.kwetter.dao.models.Kweet
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import java.security.Principal
 
 @RestController
 @RequestMapping("/api/")
@@ -16,5 +17,5 @@ class KweetController(private val kweetClient: KweetClient) {
 
     @PostMapping("kweet")
     @ResponseStatus(HttpStatus.CREATED)
-    fun createKweet(@RequestParam text: String, @RequestParam userId: String) : Kweet = kweetClient.createKweet(text, userId)
+    fun createKweet(@RequestParam text: String, principal: Principal) : Kweet = kweetClient.createKweet(text, principal.name)
 }
