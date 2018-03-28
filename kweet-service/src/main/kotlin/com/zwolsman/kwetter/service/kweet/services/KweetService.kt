@@ -7,6 +7,7 @@ import com.zwolsman.kwetter.service.kweet.repositories.KweetRepository
 import org.bson.types.ObjectId
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
+import org.springframework.data.domain.Sort
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
@@ -22,22 +23,16 @@ class KweetService(private val kweetRepository: KweetRepository, private val use
         return kweetRepository.save(kweet)
     }
 
-    fun findByUsername(name: String) = kweetRepository.findByUser(name)
+    fun findByUsername(name: String) = kweetRepository.findByUserOrderByIdDesc(name)
     fun findById(kweetId: String) = kweetRepository.findById(ObjectId(kweetId)).orElseThrow { throw KweetNotFoundException(kweetId) }
 
     fun loadTimeline(name: String, pageable: Pageable): Page<Kweet> {
         val user = userClient.findByUsername(name)
         val users = listOf(*user.friends.toTypedArray(), user)
         val qur = Query(Criteria.where("user").`in`(users))
-        val kweets = template.find(qur.with(pageable), Kweet::class.java)
+        val kweets = template.find(qur.with(pageable).with(Sort.by(Sort.Order.desc("id"))), Kweet::class.java)
 
         return PageableExecutionUtils.getPage(kweets, pageable, { template.count(qur, Kweet::class.java) })
-    }
-    fun loadTimeline(name: String): List<Kweet> {
-        val user = userClient.findByUsername(name)
-        val users = listOf(*user.friends.toTypedArray(), user)
-        return template.find(Query(Criteria.where("user").`in`(users)), Kweet::class.java)
-
     }
 
 }
