@@ -27,7 +27,7 @@ class ApiService {
         var path: String {
             switch(self) {
             case .timeline:
-                return "/user/"
+                return "/user/timeline"
             case .tweets(let user):
                 return "/user/\(user)/kweets"
             case .info(let user):
@@ -37,12 +37,12 @@ class ApiService {
     }
     
     static var timeline:Observable<[Kweet]> {
-        return Observable.empty()
-        return request(endpoint: .timeline, query: ["user": "tester"]) //TODO login stuff
+        return request(endpoint: .timeline).map { (page: Page<Kweet>) in
+            return page.content
+        }
     }
     
     static func tweetsFor(user: String) -> Observable<[Kweet]> {
-        return Observable.empty()
         return request(endpoint: .tweets(user: user))
     }
     

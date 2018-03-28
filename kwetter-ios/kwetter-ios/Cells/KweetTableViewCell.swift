@@ -31,7 +31,7 @@ class KweetTableViewCell: UITableViewCell {
     func setup(kweet: Kweet) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSZ"
-        let date = formatter.date(from: kweet.createdAt)
+        let date = Date(timeIntervalSince1970: kweet.createdAt / 1000)
         
         let attributedString = NSMutableAttributedString(string: kweet.text)
         
@@ -49,7 +49,7 @@ class KweetTableViewCell: UITableViewCell {
         
         content.attributedText = attributedString
         userName.text = "@" + kweet.user.username
-        timeAgo.text = date?.relativeFormatted() ?? "-"
+        timeAgo.text = date.relativeFormatted()
         
         profileImage.kf.setImage(with: URL(string: kweet.user.profileImageUrl)!, placeholder: nil, options: [.processor(processor)])
     }
