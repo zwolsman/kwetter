@@ -280,6 +280,7 @@
                         <viewLayoutGuide key="safeArea" id="bby-pQ-IPW"/>
                     </view>
                     <connections>
+                        <outlet property="kweetButton" destination="hIG-PR-Huk" id="fdN-DB-6sA"/>
                         <outlet property="profileImage" destination="LoP-Yr-jND" id="WLv-UJ-ZYD"/>
                         <outlet property="progress" destination="u1k-ZI-mzc" id="mR2-Z7-Kpz"/>
                         <outlet property="textView" destination="PMG-c5-eIP" id="VeW-VI-BAd"/>

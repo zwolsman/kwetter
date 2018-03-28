@@ -24,6 +24,7 @@ class ApiService {
         case timeline
         case tweets(user: String)
         case info(user: String)
+        case createKweet
         var path: String {
             switch(self) {
             case .timeline:
@@ -32,6 +33,8 @@ class ApiService {
                 return "/user/\(user)/kweets"
             case .info(let user):
                 return "/user/\(user)"
+            case .createKweet:
+                return "/kweet"
             }
         }
     }
@@ -50,6 +53,9 @@ class ApiService {
         return request(endpoint: .info(user: user))
     }
     
+    static func post(kweet: String) -> Observable<Kweet> {
+        return request(endpoint: .createKweet, query: ["text" : kweet], method: .post)
+    }
     private static func request<T>(endpoint: Endpoint, query: [String: CustomStringConvertible] = [:], method: HttpMethod = HttpMethod.get) -> Observable<T> where T : Codable {
         guard let url = URL(string: BASE_URL)?.appendingPathComponent(endpoint.path), var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
             fatalError("Could not construct the url")
@@ -72,8 +78,10 @@ class ApiService {
         request.httpMethod = method.rawValue
         
         if method == .post {
-            request.httpBody = try! JSONEncoder().encode(normalizedQuery)
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = normalizedQuery.map({ (key, value) -> String in
+                return "\(key)=\(value)"
+            }).joined(separator: "&").data(using: .utf8)!
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
         
         if(token != nil) {
@@ -84,11 +92,7 @@ class ApiService {
         let response = URLSession.shared.rx.response(request: request)
         return response.map { _, data in
             print(String(bytes: data, encoding: .utf8)!)
-            return try! decoder.decode(T.self, from: data) //{
-//                return json
-//            }
-//            debugPrint(String(bytes: data, encoding: .utf8)!)
-//            fatalError("Error decodoing stuff")
+            return try! decoder.decode(T.self, from: data) //TODO decode error and present to user
         }
 
     }

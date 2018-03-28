@@ -10,8 +10,9 @@ import UIKit
 import RxSwift
 
 let cellIdentifier = "kweetCell"
-class TimelineController : UITableViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
+class TimelineController : UITableViewController {
     
+    let kweets = Variable<[Kweet]>([])
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -19,18 +20,20 @@ class TimelineController : UITableViewController, UITextViewDelegate, UIPopoverP
         tableView.tableFooterView = UIView()
         tableView.dataSource = nil
         tableView.delegate = nil
-        ApiService.timeline.bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: KweetTableViewCell.self)) {  _, element, cell in
+        ApiService.timeline.bind(to: kweets).disposed(by: disposeBag)
+        kweets.asObservable().bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: KweetTableViewCell.self)) {  _, element, cell in
                 cell.setup(kweet: element)
             }
             .disposed(by: disposeBag)
     }
     
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        print(URL)
-        return true
-    }
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let createKweetController = segue.destination as? CreateKweetViewController {
+            createKweetController.newKweet.subscribe(onNext: {[weak self] kweet in
+                self?.kweets.value.insert(kweet, at: 0)
+                self?.dismiss(animated: true, completion: nil)
+            }).disposed(by: disposeBag)
+        }
     }
 }
